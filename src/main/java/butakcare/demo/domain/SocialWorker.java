@@ -7,11 +7,7 @@ import lombok.Getter;
 @Getter
 public class SocialWorker extends User{
 
-    private String phoneNumber;
-
     private String description;
 
     private String role;
-
-    private String photo;
 }
