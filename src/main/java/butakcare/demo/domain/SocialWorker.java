@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class SocialWorker extends User{
+public class SocialWorker extends CommonUser {
 
     private String description;
 
