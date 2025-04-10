@@ -2,12 +2,12 @@ package butakcare.demo.domain;
 
 import butakcare.demo.common.Address;
 import butakcare.demo.common.Rank;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,6 +24,7 @@ public class Center {
 
     private String phoneNumber;
 
+
     private Boolean bathingVehicle;
 
     private Address address;
@@ -31,4 +32,7 @@ public class Center {
     private Rank rank;
 
     private LocalDate startDate;
+
+    @OneToMany(mappedBy = "center")
+    private List<Senior> seniorList = new ArrayList<>();
 }
