@@ -27,6 +27,7 @@ public class Center {
 
     private Boolean bathingVehicle;
 
+    @Enumerated(EnumType.STRING)
     private Address address;
 
     private Rank rank;

@@ -25,6 +25,7 @@ public class Senior {
 
     private Integer careRank;
 
+    @Enumerated(EnumType.STRING)
     private Address address;
 
     private String schedule;
