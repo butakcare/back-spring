@@ -1,9 +1,13 @@
 package butakcare.demo.domain;
 
 import butakcare.demo.common.Address;
+import jakarta.persistence.Entity;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
+@Entity
+@Getter
 public class Caregiver extends CommonUser {
 
     private LocalDate birth;
