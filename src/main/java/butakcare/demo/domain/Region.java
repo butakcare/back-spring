@@ -16,4 +16,10 @@ public class Region {
     private String sigungu;
 
     private String eupmyeondong;
+
+    private Float latitude;
+
+    private Float longitude;
+
+
 }
