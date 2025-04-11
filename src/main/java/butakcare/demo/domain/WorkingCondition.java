@@ -15,6 +15,9 @@ public class WorkingCondition {
 
     private Integer wage;
 
+    @OneToOne
+    private Region region;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Senior senior;
 
