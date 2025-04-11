@@ -1,9 +1,6 @@
 package butakcare.demo.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.time.LocalTime;
@@ -21,6 +18,6 @@ public class WorkingConditionTime {
 
     private LocalTime endTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private WorkingCondition workingCondition;
 }

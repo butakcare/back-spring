@@ -32,6 +32,6 @@ public class Senior {
 
     private String memo;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Center center;
 }

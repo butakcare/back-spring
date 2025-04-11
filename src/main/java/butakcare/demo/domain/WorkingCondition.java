@@ -15,7 +15,7 @@ public class WorkingCondition {
 
     private Integer wage;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Senior senior;
 
     @OneToMany(mappedBy = "workingCondition")
