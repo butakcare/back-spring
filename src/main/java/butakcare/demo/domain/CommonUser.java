@@ -12,8 +12,6 @@ public class CommonUser {
     @Id @GeneratedValue
     private Long id;
 
-    private String username;
-
     private String name;
 
     private String password;
