@@ -30,5 +30,8 @@ public class CaregiverCondition {
     private Caregiver caregiver;
 
     @OneToMany(mappedBy = "caregiverCondition")
-    private List<CaregiverConditionRegion> caregiverConditionRegionList = new ArrayList<>();
+    private List<CaregiverConditionRegion> caregiverConditionRegions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "caregiverCondition")
+    private List<CaregiverConditionTime> caregiverConditionTimes = new ArrayList<>();
 }
