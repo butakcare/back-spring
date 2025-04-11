@@ -12,7 +12,7 @@ public class CaregiverConditionTime {
     @Id @GeneratedValue
     private Long id;
 
-    private String day;
+    private String weekday;
 
     private LocalTime startTime;
 
