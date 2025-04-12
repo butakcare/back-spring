@@ -22,5 +22,14 @@ public class WorkingCondition {
     private Senior senior;
 
     @OneToMany(mappedBy = "workingCondition", cascade = CascadeType.ALL)
-    private List<WorkingConditionTime> workingConditionTimeList = new ArrayList<>();
+    private List<WorkingConditionTime> times = new ArrayList<>();
+
+    public void setSenior(Senior senior){
+        this.senior = senior;
+    }
+
+    public void addTimes(WorkingConditionTime time){
+        this.times.add(time);
+        time.setWorkingCondition(this);
+    }
 }

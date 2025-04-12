@@ -20,4 +20,8 @@ public class WorkingConditionTime {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private WorkingCondition workingCondition;
+
+    public void setWorkingCondition(WorkingCondition workingCondition){
+        this.workingCondition = workingCondition;
+    }
 }

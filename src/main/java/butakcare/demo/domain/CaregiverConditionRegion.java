@@ -15,4 +15,12 @@ public class CaregiverConditionRegion {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Region region;
+
+    public void setRegion(Region region) {
+        this.region = region;
+    }
+
+    public void setCaregiverCondition(CaregiverCondition caregiverCondition) {
+        this.caregiverCondition = caregiverCondition;
+    }
 }
