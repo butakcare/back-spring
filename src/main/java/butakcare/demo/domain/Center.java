@@ -34,6 +34,6 @@ public class Center {
 
     private LocalDate startDate;
 
-    @OneToMany(mappedBy = "center")
+    @OneToMany(mappedBy = "center", cascade = CascadeType.PERSIST)
     private List<Senior> seniorList = new ArrayList<>();
 }

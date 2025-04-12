@@ -21,6 +21,6 @@ public class WorkingCondition {
     @ManyToOne(fetch = FetchType.LAZY)
     private Senior senior;
 
-    @OneToMany(mappedBy = "workingCondition")
+    @OneToMany(mappedBy = "workingCondition", cascade = CascadeType.ALL)
     private List<WorkingConditionTime> workingConditionTimeList = new ArrayList<>();
 }

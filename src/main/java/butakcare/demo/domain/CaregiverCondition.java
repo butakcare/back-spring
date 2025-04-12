@@ -29,9 +29,9 @@ public class CaregiverCondition {
     @OneToOne
     private Caregiver caregiver;
 
-    @OneToMany(mappedBy = "caregiverCondition")
+    @OneToMany(mappedBy = "caregiverCondition", cascade = CascadeType.ALL)
     private List<CaregiverConditionRegion> caregiverConditionRegions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "caregiverCondition")
+    @OneToMany(mappedBy = "caregiverCondition", cascade = CascadeType.ALL)
     private List<CaregiverConditionTime> caregiverConditionTimes = new ArrayList<>();
 }
