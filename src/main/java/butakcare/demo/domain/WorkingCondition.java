@@ -15,7 +15,7 @@ public class WorkingCondition {
 
     private Integer wage;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Region region;
 
     @ManyToOne(fetch = FetchType.LAZY)

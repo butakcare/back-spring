@@ -16,9 +16,9 @@ public class Matching {
     @Enumerated(EnumType.STRING)
     private MatchingStatus status;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private CaregiverCondition caregiverCondition;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private WorkingCondition workingCondition;
 }
