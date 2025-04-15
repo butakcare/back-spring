@@ -1,6 +1,5 @@
 package butakcare.demo.service;
 
-import butakcare.demo.common.Address;
 import butakcare.demo.domain.Center;
 import butakcare.demo.dto.CenterDto;
 import butakcare.demo.repository.CenterRepository;

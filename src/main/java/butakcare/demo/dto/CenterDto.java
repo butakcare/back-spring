@@ -1,6 +1,6 @@
 package butakcare.demo.dto;
 
-import butakcare.demo.common.Rank;
+import butakcare.demo.enums.Rank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,7 +13,8 @@ public class CenterDto {
     private String brn; //사업자 번호
     private String phoneNumber;
     private Boolean bathingVehicle;
-    private AddressDto address;
+    private String address;
+    private String addressDetail;
     private Rank rank;
     private LocalDate startDate;
 

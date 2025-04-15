@@ -1,6 +1,6 @@
 package butakcare.demo.domain;
 
-import butakcare.demo.common.MatchingStatus;
+import butakcare.demo.enums.MatchingStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

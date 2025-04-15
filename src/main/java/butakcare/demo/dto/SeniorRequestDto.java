@@ -1,8 +1,5 @@
 package butakcare.demo.dto;
 
-import butakcare.demo.common.Address;
-import butakcare.demo.domain.Center;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

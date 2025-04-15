@@ -1,6 +1,5 @@
 package butakcare.demo.domain;
 
-import butakcare.demo.common.Address;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToOne;
@@ -22,7 +21,9 @@ public class Caregiver extends CommonUser {
 
     private String nursingAssistantLicense;
 
-    private Address address;
+    private String address;
+
+    private String addressDetail;
 
     private String careerDescription;
 

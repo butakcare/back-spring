@@ -1,7 +1,6 @@
 package butakcare.demo.domain;
 
-import butakcare.demo.common.Address;
-import butakcare.demo.common.Rank;
+import butakcare.demo.enums.Rank;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,8 +28,9 @@ public class Center {
 
     private Boolean bathingVehicle;
 
-    @Embedded
-    private Address address;
+    private String address;
+
+    private String addressDetail;
 
     @Enumerated(EnumType.STRING)
     private Rank rank;
@@ -41,12 +41,13 @@ public class Center {
     private List<Senior> seniorList = new ArrayList<>();
 
     public Center(String name, String brn, String phoneNumber,
-                  Boolean bathingVehicle, Address address, Rank rank, LocalDate startDate, String siteUrl) {
+                  Boolean bathingVehicle, String address, String addressDetail, Rank rank, LocalDate startDate, String siteUrl) {
         this.name = name;
         this.brn = brn;
         this.phoneNumber = phoneNumber;
         this.bathingVehicle = bathingVehicle;
         this.address = address;
+        this.addressDetail = addressDetail;
         this.rank = rank;
         this.startDate = startDate;
         this.siteUrl = siteUrl;

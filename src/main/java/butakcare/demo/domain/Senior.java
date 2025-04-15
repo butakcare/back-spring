@@ -1,13 +1,10 @@
 package butakcare.demo.domain;
 
-import butakcare.demo.common.Address;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -27,8 +24,9 @@ public class Senior {
 
     private Integer careRank;
 
-    @Enumerated(EnumType.STRING)
-    private Address address;
+    private String address;
+
+    private String addressDetail;
 
     @Column(nullable = true)
     private String schedule;
