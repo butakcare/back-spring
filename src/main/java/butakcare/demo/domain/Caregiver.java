@@ -2,6 +2,7 @@ package butakcare.demo.domain;
 
 import butakcare.demo.common.Address;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,6 @@ public class Caregiver extends CommonUser {
 
     private String careerDescription;
 
-    @OneToOne(mappedBy = "caregiver")
+    @OneToOne(mappedBy = "caregiver", fetch = FetchType.LAZY)
     private CaregiverCondition caregiverCondition;
 }

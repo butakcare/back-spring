@@ -31,9 +31,20 @@ public class CaregiverCondition {
     @OneToOne
     private Caregiver caregiver;
 
-    @OneToMany(mappedBy = "caregiverCondition")
-    private List<CaregiverConditionRegion> caregiverConditionRegions = new ArrayList<>();
+    @OneToMany(mappedBy = "caregiverCondition", cascade = CascadeType.ALL)
+    private List<CaregiverConditionRegion> regions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "caregiverCondition")
-    private List<CaregiverConditionTime> caregiverConditionTimes = new ArrayList<>();
+    @OneToMany(mappedBy = "caregiverCondition", cascade = CascadeType.ALL)
+    private List<CaregiverConditionTime> times = new ArrayList<>();
+
+    public void addRegions(CaregiverConditionRegion region) {
+        this.regions.add(region);
+        region.setCaregiverCondition(this);
+    }
+
+    public void addTimes(CaregiverConditionTime time) {
+        this.times.add(time);
+        time.setCaregiverCondition(this);
+    }
+
 }

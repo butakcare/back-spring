@@ -22,4 +22,8 @@ public class CaregiverConditionTime {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private CaregiverCondition caregiverCondition;
+
+    public void setCaregiverCondition(CaregiverCondition caregiverCondition) {
+        this.caregiverCondition = caregiverCondition;
+    }
 }

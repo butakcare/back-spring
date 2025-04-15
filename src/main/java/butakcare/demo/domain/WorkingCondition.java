@@ -17,12 +17,21 @@ public class WorkingCondition {
 
     private Integer wage;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Region region;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Senior senior;
 
-    @OneToMany(mappedBy = "workingCondition")
-    private List<WorkingConditionTime> workingConditionTimeList = new ArrayList<>();
+    @OneToMany(mappedBy = "workingCondition", cascade = CascadeType.ALL)
+    private List<WorkingConditionTime> times = new ArrayList<>();
+
+    public void setSenior(Senior senior){
+        this.senior = senior;
+    }
+
+    public void addTimes(WorkingConditionTime time){
+        this.times.add(time);
+        time.setWorkingCondition(this);
+    }
 }
