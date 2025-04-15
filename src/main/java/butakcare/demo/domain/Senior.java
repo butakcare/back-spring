@@ -30,8 +30,10 @@ public class Senior {
     @Enumerated(EnumType.STRING)
     private Address address;
 
+    @Column(nullable = true)
     private String schedule;
 
+    @Column(nullable = true)
     private String memo;
 
     @ManyToOne(fetch = FetchType.LAZY)
