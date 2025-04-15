@@ -8,7 +8,8 @@ import java.time.LocalDate;
 
 @Getter
 @AllArgsConstructor
-public class CenterDto {
+public class CenterResponseDto {
+    private Long id;
     private String name;
     private String brn; //사업자 번호
     private String phoneNumber;
