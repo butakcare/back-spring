@@ -37,5 +37,6 @@ public class Senior {
     private String memo;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "center_id")
     private Center center;
 }
