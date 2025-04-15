@@ -14,7 +14,8 @@ public class SeniorRequestDto {
     private String gender;
     private Integer weight;
     private Integer careRank;
-    private AddressDto address;
+    private String address;
+    private String addressDetail;
     private Long center_id;
 
     // nullable
