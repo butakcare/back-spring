@@ -15,17 +15,13 @@ public class CenterService {
     private final CenterRepository centerRepository;
 
     public CenterDto createCenter(CenterDto dto) {
-        Address address = new Address(
-                dto.getAddress().getAddress(),
-                dto.getAddress().getAddressDetail()
-        );
-
         Center center = new Center(
                 dto.getName(),
                 dto.getBrn(),
                 dto.getPhoneNumber(),
                 dto.getBathingVehicle(),
-                address,
+                dto.getAddress(),
+                dto.getAddressDetail(),
                 dto.getRank(),
                 dto.getStartDate(),
                 dto.getSiteUrl()
