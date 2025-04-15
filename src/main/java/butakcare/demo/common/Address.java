@@ -10,4 +10,9 @@ import lombok.NoArgsConstructor;
 public class Address {
     private String address;
     private String addressDetail;
+
+    public Address(String addressDetail, String address) {
+        this.address = address;
+        this.addressDetail = addressDetail;
+    }
 }
