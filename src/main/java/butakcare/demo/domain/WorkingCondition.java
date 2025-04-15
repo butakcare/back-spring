@@ -17,10 +17,10 @@ public class WorkingCondition {
 
     private Integer wage;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Region region;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private Senior senior;
 
     @OneToMany(mappedBy = "workingCondition", cascade = CascadeType.ALL)
