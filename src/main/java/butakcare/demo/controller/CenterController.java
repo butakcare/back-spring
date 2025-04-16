@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -18,9 +19,11 @@ public class CenterController {
     private final CenterService centerService;
 
     @PostMapping
-    public ResponseEntity<CenterRequestDto> createCenter(@RequestBody CenterRequestDto dto) {
-        CenterRequestDto savedCenter = centerService.createCenter(dto);
-        return ResponseEntity.ok(savedCenter);
+    public ResponseEntity<Void> createCenter(@RequestBody CenterRequestDto dto) {
+        Center savedCenter = centerService.createCenter(dto);
+
+        URI location = URI.create("/api/v2/centers/" + savedCenter.getId());
+        return ResponseEntity.created(location).build();
     }
 
     @GetMapping

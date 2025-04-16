@@ -18,7 +18,7 @@ public class CenterService {
     private final CenterRepository centerRepository;
 
     @Transactional
-    public CenterRequestDto createCenter(CenterRequestDto dto) {
+    public Center createCenter(CenterRequestDto dto) {
         Center center = new Center(
                 dto.getName(),
                 dto.getBrn(),
@@ -30,8 +30,8 @@ public class CenterService {
                 dto.getStartDate(),
                 dto.getSiteUrl()
         );
-        centerRepository.save(center);
-        return dto;
+        CenterRepository.save(center);
+        return center;
     }
 
     public List<CenterResponseDto> allCenters() {
