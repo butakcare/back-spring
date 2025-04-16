@@ -34,15 +34,24 @@ public class CenterService {
         return dto;
     }
 
-    public List<CenterResponseDto> getCenters(String name) {
-        List<Center> centers;
+    public List<CenterResponseDto> allCenters() {
+        List<Center> centers = centerRepository.findAll();
+        return centers.stream().map(center -> new CenterResponseDto(
+                center.getId(),
+                center.getName(),
+                center.getBrn(),
+                center.getPhoneNumber(),
+                center.getBathingVehicle(),
+                center.getAddress(),
+                center.getAddressDetail(),
+                center.getRank(),
+                center.getStartDate(),
+                center.getSiteUrl()
+        )).toList();
+    }
 
-        if (name == null || name.isEmpty()) {
-            centers = centerRepository.findAll();
-        } else {
-            centers = centerRepository.findByNameContaining(name);
-        }
-
+    public List<CenterResponseDto> searchCenters(String name) {
+        List<Center> centers = centerRepository.findByNameContaining(name);
         return centers.stream().map(center -> new CenterResponseDto(
                 center.getId(),
                 center.getName(),
