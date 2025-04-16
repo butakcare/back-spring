@@ -27,7 +27,7 @@ public class CenterController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CenterResponseDto>> getCenters(@RequestParam String name) {
+    public ResponseEntity<List<CenterResponseDto>> getCenters(@RequestParam(required = false) String name) {
         List<CenterResponseDto> response;
         if (name == null || name.isEmpty()) {
             response = centerService.allCenters();
