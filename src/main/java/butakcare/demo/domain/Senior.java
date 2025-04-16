@@ -1,6 +1,8 @@
 package butakcare.demo.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +11,8 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Senior {
 
     @Id @GeneratedValue
@@ -27,9 +31,6 @@ public class Senior {
     private String address;
 
     private String addressDetail;
-
-    @Column(nullable = true)
-    private String schedule;
 
     @Column(nullable = true)
     private String memo;

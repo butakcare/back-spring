@@ -19,6 +19,5 @@ public class SeniorRequestDto {
     private Long center_id;
 
     // nullable
-    private String schedule;
     private String memo;
 }

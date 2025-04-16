@@ -17,6 +17,8 @@ public class WorkingCondition {
 
     private Integer wage;
 
+    private String schedule;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Region region;
 
