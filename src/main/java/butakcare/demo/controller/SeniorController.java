@@ -33,7 +33,7 @@ public class SeniorController {
     }
 
     @PatchMapping("/{seniorId}")
-    public ResponseEntity<SeniorPatchDto> updateSenior(@PathVariable Long seniorId, @RequestBody SeniorPatchDto dto) {
+    public ResponseEntity<Void> updateSenior(@PathVariable Long seniorId, @RequestBody SeniorPatchDto dto) {
         seniorService.updateSenior(seniorId, dto);
         return ResponseEntity.noContent().build();
     }
