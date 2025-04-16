@@ -32,7 +32,6 @@ public class SeniorService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "해당 센터를 찾을 수 없습니다."));
 
         Senior senior = Senior.builder()
-                .photo(dto.getPhoto())
                 .birth(dto.getBirth())
                 .gender(dto.getGender())
                 .weight(dto.getWeight())

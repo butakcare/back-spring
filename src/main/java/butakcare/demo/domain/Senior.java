@@ -18,6 +18,7 @@ public class Senior {
     @Id @GeneratedValue
     private Long id;
 
+    @Column(nullable = true)
     private String photo;
 
     private LocalDate birth;

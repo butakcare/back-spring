@@ -9,7 +9,6 @@ import java.time.LocalDate;
 @Getter
 public class SeniorRequestDto {
 
-    private String photo;
     private LocalDate birth;
     private String gender;
     private Integer weight;
