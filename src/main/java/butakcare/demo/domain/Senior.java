@@ -34,7 +34,7 @@ public class Senior {
     private String addressDetail;
 
     @Column(nullable = true)
-    private String memo;
+    private String memo = "";
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "center_id")

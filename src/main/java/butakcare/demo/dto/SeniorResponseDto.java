@@ -22,6 +22,5 @@ public class SeniorResponseDto {
     private Long centerId;
 
     // nullable
-    @Builder.Default
-    private String memo = "";
+    private String memo;
 }
