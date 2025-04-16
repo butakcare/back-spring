@@ -30,7 +30,7 @@ public class CenterService {
                 dto.getStartDate(),
                 dto.getSiteUrl()
         );
-        CenterRepository.save(center);
+        centerRepository.save(center);
         return center;
     }
 
