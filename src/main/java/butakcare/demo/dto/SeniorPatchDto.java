@@ -1,13 +1,14 @@
 package butakcare.demo.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDate;
 
-@AllArgsConstructor
 @Getter
-public class SeniorRequestDto {
+@AllArgsConstructor
+public class SeniorPatchDto {
 
     private LocalDate birth;
     private String gender;
@@ -15,7 +16,6 @@ public class SeniorRequestDto {
     private Integer careRank;
     private String address;
     private String addressDetail;
-    private Long center_id;
 
     // nullable
     private String memo;

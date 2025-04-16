@@ -39,4 +39,36 @@ public class Senior {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "center_id")
     private Center center;
+
+    public void update(
+            LocalDate birth,
+            String gender,
+            Integer weight,
+            Integer careRank,
+            String address,
+            String addressDetail,
+            String memo
+    ) {
+        if (birth != null) {
+            this.birth = birth;
+        }
+        if (gender != null) {
+            this.gender = gender;
+        }
+        if (weight != null) {
+            this.weight = weight;
+        }
+        if (careRank != null) {
+            this.careRank = careRank;
+        }
+        if (address != null) {
+            this.address = address;
+        }
+        if (addressDetail != null) {
+            this.addressDetail = addressDetail;
+        }
+        if (memo != null) {
+            this.memo = memo;
+        }
+    }
 }

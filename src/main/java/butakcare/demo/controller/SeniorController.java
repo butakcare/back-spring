@@ -1,7 +1,8 @@
 package butakcare.demo.controller;
 
 import butakcare.demo.domain.Senior;
-import butakcare.demo.dto.SeniorRequestDto;
+import butakcare.demo.dto.SeniorPatchDto;
+import butakcare.demo.dto.SeniorPostDto;
 import butakcare.demo.dto.SeniorResponseDto;
 import butakcare.demo.service.SeniorService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class SeniorController {
     private final SeniorService seniorService;
 
     @PostMapping
-    public ResponseEntity<Void> createSenior(@RequestBody SeniorRequestDto dto) {
+    public ResponseEntity<Void> createSenior(@RequestBody SeniorPostDto dto) {
         Senior savedSenior = seniorService.createSenior(dto);
         URI location = URI.create("/api/v2/seniors/" + savedSenior.getId());
         return ResponseEntity.created(location).build();
@@ -29,5 +30,11 @@ public class SeniorController {
     public ResponseEntity<List<SeniorResponseDto>> getSeniors(@RequestParam Long centerId) {
         List<SeniorResponseDto> response = seniorService.getCenterSeniors(centerId);
         return ResponseEntity.ok(response);
+    }
+
+    @PatchMapping("/{seniorId}")
+    public ResponseEntity<SeniorPatchDto> updateSenior(@PathVariable Long seniorId, @RequestBody SeniorPatchDto dto) {
+        seniorService.updateSenior(seniorId, dto);
+        return ResponseEntity.noContent().build();
     }
 }

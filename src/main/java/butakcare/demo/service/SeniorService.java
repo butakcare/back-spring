@@ -2,20 +2,18 @@ package butakcare.demo.service;
 
 import butakcare.demo.domain.Center;
 import butakcare.demo.domain.Senior;
-import butakcare.demo.dto.CenterRequestDto;
-import butakcare.demo.dto.SeniorRequestDto;
+import butakcare.demo.dto.SeniorPatchDto;
+import butakcare.demo.dto.SeniorPostDto;
 import butakcare.demo.dto.SeniorResponseDto;
 import butakcare.demo.repository.CenterRepository;
 import butakcare.demo.repository.SeniorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -26,7 +24,7 @@ public class SeniorService {
     private final CenterRepository centerRepository;
 
     @Transactional
-    public Senior createSenior(SeniorRequestDto dto) {
+    public Senior createSenior(SeniorPostDto dto) {
 
         Center center = centerRepository.findById(dto.getCenter_id())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "해당 센터를 찾을 수 없습니다."));
@@ -63,5 +61,20 @@ public class SeniorService {
                 .memo(senior.getMemo())
                 .build()
         ).toList();
+    }
+
+    @Transactional
+    public void updateSenior(Long seniorId, SeniorPatchDto dto) {
+        Senior senior = seniorRepository.findById(seniorId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "해당 어르신을 찾을 수 없습니다."));
+        senior.update(
+                dto.getBirth(),
+                dto.getGender(),
+                dto.getWeight(),
+                dto.getCareRank(),
+                dto.getAddress(),
+                dto.getAddressDetail(),
+                dto.getMemo()
+        );
     }
 }
