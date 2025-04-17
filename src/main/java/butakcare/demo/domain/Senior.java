@@ -11,8 +11,6 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Senior {
 
     @Id @GeneratedValue
@@ -39,6 +37,27 @@ public class Senior {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "center_id")
     private Center center;
+
+    public Senior(
+            LocalDate birth,
+            String gender,
+            Integer weight,
+            Integer careRank,
+            String address,
+            String addressDetail,
+            String memo,
+            Center center
+    ) {
+        this.photo = photo;
+        this.birth = birth;
+        this.gender = gender;
+        this.weight = weight;
+        this.careRank = careRank;
+        this.address = address;
+        this.addressDetail = addressDetail;
+        this.center = center;
+        this.memo = memo;
+    }
 
     public void update(
             LocalDate birth,

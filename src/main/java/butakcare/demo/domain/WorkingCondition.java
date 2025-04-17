@@ -12,23 +12,29 @@ import java.util.List;
 @NoArgsConstructor
 public class WorkingCondition {
 
-    @Id @GeneratedValue
+    @Id
     private Long id;
 
+    @Column(nullable = true)
     private Integer wage;
 
-    private String schedule;
-
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = true)
     private Region region;
 
     @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "id")
     private Senior senior;
 
     @OneToMany(mappedBy = "workingCondition", cascade = CascadeType.ALL)
     private List<WorkingConditionTime> times = new ArrayList<>();
 
-    public void setSenior(Senior senior){
+    public WorkingCondition(
+            Senior senior
+    ) {
+        this.wage = wage;
+        this.region = region;
         this.senior = senior;
     }
 

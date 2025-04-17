@@ -4,20 +4,16 @@ import butakcare.demo.domain.Caregiver;
 import butakcare.demo.domain.CaregiverCondition;
 import butakcare.demo.domain.CaregiverConditionTime;
 import butakcare.demo.dto.CaregiverConditionPostDto;
-import butakcare.demo.dto.CaregiverConditionTimeDto;
+import butakcare.demo.dto.WorkingTimeDto;
 import butakcare.demo.dto.TimeRangeDto;
 import butakcare.demo.repository.CaregiverConditionRepository;
 import butakcare.demo.repository.CaregiverConditionTimeRepository;
-import butakcare.demo.repository.CaregiverRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalTime;
 import java.util.Map;
 
 @Service
@@ -55,7 +51,7 @@ public class CaregiverConditionService {
     }
 
     @Transactional
-    public void updateWorkingTimes(Long caregiverId, CaregiverConditionTimeDto dto) {
+    public void updateWorkingTimes(Long caregiverId, WorkingTimeDto dto) {
         CaregiverCondition caregiverCondition = caregiverConditionRepository.findById(caregiverId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "해당 요양보호사의 근무 조건이 존재하지 않습니다."));
 

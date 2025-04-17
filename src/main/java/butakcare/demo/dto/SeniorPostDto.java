@@ -15,7 +15,7 @@ public class SeniorPostDto {
     private Integer careRank;
     private String address;
     private String addressDetail;
-    private Long center_id;
+    private Long centerId;
 
     // nullable
     private String memo;

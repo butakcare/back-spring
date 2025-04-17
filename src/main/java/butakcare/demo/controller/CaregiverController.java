@@ -2,9 +2,8 @@
 
     import butakcare.demo.domain.Caregiver;
     import butakcare.demo.domain.CaregiverCondition;
-    import butakcare.demo.domain.CaregiverConditionTime;
     import butakcare.demo.dto.CaregiverConditionPostDto;
-    import butakcare.demo.dto.CaregiverConditionTimeDto;
+    import butakcare.demo.dto.WorkingTimeDto;
     import butakcare.demo.dto.CaregiverPostDto;
     import butakcare.demo.dto.CaregiverResponseDto;
     import butakcare.demo.service.CaregiverConditionService;
@@ -41,7 +40,7 @@
         }
 
         @PutMapping("/{caregiverId}/working-condition/times")
-        public ResponseEntity<Void> updateWorkingTimes(@PathVariable Long caregiverId, @RequestBody CaregiverConditionTimeDto dto) {
+        public ResponseEntity<Void> updateWorkingTimes(@PathVariable Long caregiverId, @RequestBody WorkingTimeDto dto) {
             caregiverConditionService.updateWorkingTimes(caregiverId, dto);
             return ResponseEntity.noContent().build();
         }
