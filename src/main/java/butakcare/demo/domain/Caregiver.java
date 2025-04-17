@@ -33,10 +33,7 @@ public class Caregiver extends CommonUser {
     private String addressDetail;
 
     @Column(nullable = true)
-    private String careerDescription = "";
-
-    @OneToOne(mappedBy = "caregiver", fetch = FetchType.LAZY)
-    private CaregiverCondition caregiverCondition;
+    private String careerDescription;
 
     public Caregiver(
             String name,

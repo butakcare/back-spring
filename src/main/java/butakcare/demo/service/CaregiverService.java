@@ -2,6 +2,7 @@ package butakcare.demo.service;
 
 import butakcare.demo.domain.Caregiver;
 import butakcare.demo.dto.CaregiverPostDto;
+import butakcare.demo.dto.CaregiverResponseDto;
 import butakcare.demo.repository.CaregiverRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -38,5 +39,22 @@ public class CaregiverService {
         Caregiver caregiver = caregiverRepository.findById(caregiverId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "해당 요양보호사를 찾을 수 없습니다."));
         return caregiver;
+    }
+
+    public CaregiverResponseDto getCaregiverProfile(Long caregiverId) {
+        Caregiver caregiver = findCaregiver(caregiverId);
+        return new CaregiverResponseDto(
+                caregiver.getId(),
+                caregiver.getName(),
+                caregiver.getPhoneNumber(),
+                caregiver.getPhoto(),
+                caregiver.getBirth(),
+                caregiver.getCaregiverLicense(),
+                caregiver.getSocialWorkerLicense(),
+                caregiver.getNursingAssistantLicense(),
+                caregiver.getAddress(),
+                caregiver.getAddressDetail(),
+                caregiver.getCareerDescription()
+        );
     }
 }
