@@ -3,6 +3,7 @@ package butakcare.demo.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalTime;
 
@@ -16,8 +17,10 @@ public class CaregiverConditionTime {
 
     private String weekday;
 
+    @Column(nullable = true)
     private LocalTime startTime;
 
+    @Column(nullable = true)
     private LocalTime endTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -25,5 +28,17 @@ public class CaregiverConditionTime {
 
     public void setCaregiverCondition(CaregiverCondition caregiverCondition) {
         this.caregiverCondition = caregiverCondition;
+    }
+
+    public void setWeekday(String weekday) {
+        this.weekday = weekday;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
     }
 }
