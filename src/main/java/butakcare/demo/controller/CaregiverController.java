@@ -2,7 +2,9 @@ package butakcare.demo.controller;
 
 import butakcare.demo.domain.Caregiver;
 import butakcare.demo.domain.CaregiverCondition;
+import butakcare.demo.domain.CaregiverConditionTime;
 import butakcare.demo.dto.CaregiverConditionPostDto;
+import butakcare.demo.dto.CaregiverConditionTimeDto;
 import butakcare.demo.dto.CaregiverPostDto;
 import butakcare.demo.service.CaregiverConditionService;
 import butakcare.demo.service.CaregiverService;
@@ -35,5 +37,11 @@ public class CaregiverController {
         URI location = URI.create("/api/v2/caregivers/" + caregiverId);
 
         return ResponseEntity.created(location).build();
+    }
+
+    @PutMapping("/{caregiverId}/working-condition/times")
+    public ResponseEntity<Void> updateWorkingTimes(@PathVariable Long caregiverId, @RequestBody CaregiverConditionTimeDto dto) {
+        caregiverConditionService.updateWorkingTimes(caregiverId, dto);
+        return ResponseEntity.noContent().build();
     }
 }
